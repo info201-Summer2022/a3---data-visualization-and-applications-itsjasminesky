@@ -1,11 +1,18 @@
+```
 ---
 title: "index.Rmd"
 author: "Jasmine Yearian"
 date: "8/8/2022"
 output: html_document
 ---
+```
+
+``` {r echo=FALSE}
+knitr::opts_chunk$set(fig.width = 14)
+```
+
 ## Introduction
-In this assignment, we are looking at Incarceration trends collected from Vera Institute which collected in order to estimate the number and characteristics of inmates in prisons across the United States, which exploses patterns of inequalities. I chose to analyze the incarcerations in the top ten most populous states in the united states and a map of the United States that shows the total number of incarcerations per state.I also look at more specific counties to get a larger picture of incarceration rates. Incarceration rates and their consequences can be specified at higher precision be using county levels. A question that I had in mind was what are some of the trends in incarcerations over time in general and by race in each State and in the United states in general? How does the the ratio of incarceration across all states varies per race? 
+In this assignment, we are looking at Incarceration trends collected from Vera Institute which collected in order to estimate the number and characteristics of inmates in prisons across the United States, which explores patterns of inequalities. I chose to analyze the incarcerations in the top ten most populous states in the united states and a map of the United States that shows the total number of incarcerations per state.I also look at more specific counties to get a larger picture of incarceration rates. Incarceration rates and their consequences can be specified at higher precision be using county levels. A question that I had in mind was what are some of the trends in incarcerations over time in general and by race in each State and in the United states in general? How does the the ratio of incarceration across all states varies per race? 
 
 
 ### Summary Information
@@ -36,21 +43,22 @@ county_with_highest_prisoners_in_WA <- incarceration_trends %>%
   pull(county_name)
 
 #Mean rate of incarceration per race
-mean_black_prison_pop/mean_total_prison_pop #0.683987, 68.4%
-mean_native_prison_pop/mean_total_prison_pop #0.02019331, 2%
+mean_black_prison_pop/mean_total_prison_pop #0.683987
+mean_native_prison_pop/mean_total_prison_pop #0.0201933
 mean_aapi_prison_pop/mean_total_prison_pop #0.020
 mean_latinx_prison_pop/mean_total_prison_pop #0.28
-mean_white_prison_pop/mean_total_prison_pop #0,45
+mean_white_prison_pop/mean_total_prison_pop #0.45
 
 ```
 
-I concluded that in , `r state_with_highest_pop` (California) had the highest number of prisoners as well as highest black incarceration. In Washington state, the county with the greatest incarceration is `r county_with_highest_prisoners_in_WA`  Of the total prison population, 68.4% of prison population is black while 45% are white, 28% Latinx, 2% are AAPI, 2% Indigenous. Three-fourths of the U.S population is white while less than a quarter are black, which describes the Racial disparities in prison populations. This infers the question, if minorities are committing more crimes or is this the unjust justice system at work? 
+
+I concluded that in `r state_with_highest_pop` (California) had the highest number of prisoners as well as highest black incarceration. In Washington state, the county with the greatest incarceration is `r county_with_highest_prisoners_in_WA`  Of the total prison population, 68.4% of prison population is black while 45% are white, 28% Latinx, 2% are AAPI, 2% Indigenous. Three-fourths of the U.S population is white while less than a quarter are black, which describes the Racial disparities in prison populations. This infers the question, if minorities are committing more crimes or is this the unjust justice system at work? 
 
 
 
 ### Trends Over Time Chart
 
-``````{r, echo = FALSE, fig.width = 8, fig.height = 5, message = FALSE, warning = FALSE}
+``````{r, echo = FALSE,fig.with = 9, fig.height = 6, message = FALSE, warning = FALSE}
 black_incarceration_year
 ```
 
@@ -60,6 +68,7 @@ These sub charts show the Black incarceration  per state of since 1970. From 197
 
 ``````{r, echo = FALSE, message = FALSE, warning = FALSE}
 black_white_incarceration
+
 ```
 Black Incarceration was at a higher rate until about 2009 and then was surpassed by white incarceration until 2020. Though the graph shows that most recently white people are at a  proprtion of the total incarceration, to futher look at injustice in the United States justice system, it would be better to look at the populations of each race in prison to that of the free population. 
 

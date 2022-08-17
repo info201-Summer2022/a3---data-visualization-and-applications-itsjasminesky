@@ -4,6 +4,7 @@ library(usdata)
 library(plotly)
 library(maps)
 library(stats)
+library(mapproj)
 
 setwd("~/Documents/a3---data-visualization-and-applications-itsjasminesky")
 incarceration_trends<- read.csv("~/Documents/a3---data-visualization-and-applications-itsjasminesky/incarceration_trends.csv")
@@ -41,8 +42,9 @@ black_incarceration_year <- incarceration_trends %>%
   facet_wrap(~state, nrow = 2) +
   ggtitle("Black Incarceration (State) per year") +
   ylab("Black Incarceration")
+  options(repr.plot.width =9, repr.plot.height = 9)
+
 black_incarceration_year
-library(plotly)
 
 
 #variable comparison
