@@ -45,25 +45,6 @@ black_incarceration_year
 library(plotly)
 
 
-black_white_incarceration <- incarceration_trends %>%
-  select(year, black_jail_pop, black_prison_pop, white_jail_pop, white_prison_pop) %>% replace(is.na(.), 0) %>%
-  mutate(black_sum = black_jail_pop + black_prison_pop,
-         white_sum = white_jail_pop + white_prison_pop) %>% group_by(year) %>%
-  summarise(black_sum = sum(black_sum), white_sum = sum(white_sum))
-variable_comparison <- plot_ly( data = black_white_incarceration, x = ~year,
-                                y = ~black_sum,
-                                name = "Black",
-                                type = 'scatter',
-                                mode = 'lines',
-                                width = "600"
-) %>% 
-  add_trace(y = ~white_sum, name = "White", mode = 'lines'
-) %>% layout(
-  title = "Black vs. White Total Incarceration Count over the Years", xaxis = list(title = "Year"),
-  yaxis = list(title = "Total Incarceration Number")
-)
-
-
 #variable comparison
 
 incarceration_trends %>%
